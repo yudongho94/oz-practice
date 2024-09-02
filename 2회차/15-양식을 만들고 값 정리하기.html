@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>양식 만들고 입력 정보 보내기</title>
+</head>
+<body>
+  <form action="none.com" method="post"> <!--어떤 서버로 어떻게 보낼 것인지-->
+
+    <label for="name">이름</label>
+    <input id="name" type="text" name="name"> <!--id는 웹페이지, name은 서버로 인식하는 식별자-->
+    <br>
+
+    <label for="age">나이</label>
+    <input id="age" type="number" name="age">
+    <br>
+
+    <label for="character">성격</label>
+    <textarea id="character" name="character">
+    </textarea>
+    <br>
+
+    <input type="submit"> <!--제출 버튼 자동 생성-->
+
+  </form>
+  
+</body>
+</html>

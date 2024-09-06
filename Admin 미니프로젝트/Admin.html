@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Page</title>
+  <link rel="stylesheet" href="Admin.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+</head>
+<body>
+  <!-- 네비게이션 바, 회원가입, 로그인 화면 열기-->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Kream</a>   
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">로그인</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">회원가입</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<div class="container">
+  <!-- 다크모드 버튼을 상단에 배치 -->
+   <button id="darkmode_btn">🌙</button>
+   <script src="Admin.js"></script>
+   </div>
+				<div class="cot-3">
+        <h3 class="mt-5 mb-3">신규 등록 상품</h3>
+        <form class="row row-cols-lg-auto g-3 align-items-center">      
+            <div class="col-12">
+              <label class="visually-hidden" for="inlineFormSelectPref">Preference</label>
+              <select class="form-select" id="inlineFormSelectPref">
+
+                <option selected>카테고리</option>
+                <option value="상의">상의</option>
+                <option value="하의">하의</option>
+                <option value="신발">신발</option>
+                <option value="패션잡화">패션잡화</option>
+                <!-- 카테고리 셀렉트 코드를 넣어주세요-->
+
+              </select>
+            </div>
+
+            <div class="col-3">
+                <input name="list" type="text" placeholder="제품명을 입력해주세요"></input>
+                <!-- input 입력창 코드를 넣어주세요 -->
+              </div>
+
+              <div class="col-auto">
+                <input type="button" value="조회">
+                <!-- 조회버튼 코드를 넣어주세요 -->
+              </div>
+
+          </form>
+          <div class="container mt-3">
+        <table class="table table-sm">
+
+            <thead>
+              <tr>
+                <th>카테고리</th>
+                <th>브랜드</th>
+                <th>상품명</th>
+                <th>가격</th>
+              </tr>
+                <!-- 열의 속성값을 나타내는 코드를 작성해주세요 (예 : 카테고리, 브랜드, 상품명, 가격) -->
+            </thead>
+            <tbody id="data-table">
+                <!-- 추후 크롤링한 데이터가 들어가는 자리 -->
+            </tbody>
+        </table>
+	    </div>
+    </div>
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1">Previous</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+          </li>
+      </ul>
+  </nav>
+</div>
+    <!-- 페이지 네이션 코드를 넣어주세요 -->
+   <script>
+      // 크롤링한 데이터를 아래와 같은 형태의 객체 배열로 가정합니다.
+      // 추후 데이터베이스에 있는 데이터를 쿼리문으로 불러 올 수 있게 쿼리르 작성해 볼 수 있음
+      const data = [
+          { category: "상의", brand: 'Supreme', product: '슈프림 박스로고 후드티', price: '390,000' },
+          { category: "하의", brand: 'DIESEL', product: '디젤 트랙 팬츠', price: '188,000' },
+          { category: "신발", brand: 'Nike', product: '에어포스 1', price: '137,000' },
+          { category: "패션잡화", brand: 'Music&Goods', product: '빵빵이 키링', price: '29,000' },
+          // ...
+      ];
+      
+      const dataTable = document.getElementById('data-table');
+      
+      data.forEach((item) => {
+          const row = dataTable.insertRow();
+          row.insertCell(0).innerHTML = item.category;
+          row.insertCell(1).innerHTML = item.brand;
+          row.insertCell(2).innerHTML = item.product;
+          row.insertCell(3).innerHTML = item.price;
+      });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>

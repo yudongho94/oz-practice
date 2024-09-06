@@ -1,0 +1,25 @@
+/* 기본 스타일 */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 다크모드 스타일 */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* 버튼 스타일 */
+#darkmode_btn {
+  position: fixed;
+  top: 0;
+  right:75px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}

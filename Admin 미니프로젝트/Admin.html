@@ -24,13 +24,12 @@
             <a class="nav-link" href="#">로그인</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">회원가입</a>
+            <a class="nav-link" href="../Admin 미니프로젝트/join.html">회원가입</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
-
 <div class="container">
   <!-- 다크모드 버튼을 상단에 배치 -->
    <button id="darkmode_btn">🌙</button>
@@ -49,7 +48,16 @@
                 <option value="신발">신발</option>
                 <option value="패션잡화">패션잡화</option>
                 <!-- 카테고리 셀렉트 코드를 넣어주세요-->
+              </select>
+            </div>
 
+            <div class="col-13">
+              <label class="visually-hidden" for="inlineFormSelectGender">Preference</label>
+              <select class="form-select" id="inlineFormSelectGender">
+                <!--성별 카테고리 만들기-->
+                <option selected="gender">성별</option>
+                <option value=“male”>남성</option>
+                <option value=“female”>여성</option>
               </select>
             </div>
 
@@ -62,7 +70,7 @@
                 <input type="button" value="조회">
                 <!-- 조회버튼 코드를 넣어주세요 -->
               </div>
-
+              
           </form>
           <div class="container mt-3">
         <table class="table table-sm">
@@ -96,6 +104,28 @@
       </ul>
   </nav>
 </div>
+
+    <!-- 시간 추가 -->
+    <div id="clock"></div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        // 1초마다 updateClock 함수를 호출하여 시계를 업데이트합니다.
+        setInterval(updateClock, 1000);
+
+        // 페이지 로드 시 즉시 시계를 업데이트합니다.
+        updateClock();
+    </script>
+
     <!-- 페이지 네이션 코드를 넣어주세요 -->
    <script>
       // 크롤링한 데이터를 아래와 같은 형태의 객체 배열로 가정합니다.
@@ -117,7 +147,6 @@
           row.insertCell(2).innerHTML = item.product;
           row.insertCell(3).innerHTML = item.price;
       });
-
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>

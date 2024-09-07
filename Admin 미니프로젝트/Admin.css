@@ -15,7 +15,7 @@ body.dark-mode {
 /* 버튼 스타일 */
 #darkmode_btn {
   position: fixed;
-  top: 0;
+  top: 7px;
   right:75px;
   background: none;
   border: none;
